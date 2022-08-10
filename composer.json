@@ -1,12 +1,12 @@
 {
-    "name": "ch-dame/zeebe-php-client",
+    "name": "camunda-community-hub/php-zeebe",
     "type": "library",
     "description": "PHP Client for zeebe workflow engine (https://zeebe.io)",
     "keywords": ["zeebe", "microservice", "orchestration", "workflow", "bpmn"],
-    "homepage": "https://github.com/chDame/zeebe-php-client",
+    "homepage": "https://github.com/camunda-community-hub/phpZeebe",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/chDame/zeebe-php-client/issues"
+        "issues": "https://github.com/camunda-community-hub/phpZeebe/issues"
     },
     "authors": [
         {
