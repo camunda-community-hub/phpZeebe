@@ -1,9 +1,12 @@
 FROM alpine:edge
 
-RUN apk add protobuf protobuf-dev grpc php7 php7-openssl php7-mbstring php7-json php7-phar curl git
+# Add repos
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 
-RUN curl -sS https://getcomposer.org/installer | \
-    php -- --install-dir=/usr/local/bin --filename=composer
+RUN apk --update add protobuf protobuf-dev grpc bash php php-openssl php-phar php-mbstring php-json curl git
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN composer global require "protobuf-php/protobuf-plugin" --prefer-dist
 
