@@ -1,5 +1,5 @@
 {
-    "name": "camunda-community-hub/php-zeebe",
+    "name": "camunda_community_hub/phpzeebe",
     "type": "library",
     "description": "PHP Client for zeebe workflow engine (https://zeebe.io)",
     "keywords": ["zeebe", "microservice", "orchestration", "workflow", "bpmn"],

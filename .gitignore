@@ -1,6 +1,2 @@
 zeebe.proto
-.idea
-examples/vendor
-/examples/camunda_cloud.txt
-/examples/.env
-/examples/story.bpmn
+example/vendor
