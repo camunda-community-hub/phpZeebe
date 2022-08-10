@@ -1,12 +1,13 @@
 {
-    "name": "camunda-community-hub/php-zeebe-example",
+    "name": "camundity/phpzeebe-example",
     "type": "project",
     "require": {
         "php": ">=7.1",
         "grpc/grpc": "^1.22",
         "ext-grpc": "^1.43",
         "google/protobuf": "^3.9.1",
-        "camunda_community_hub/phpzeebe": "^8.0@alpha"
+        "camundity/phpzeebe": "^8.0@alpha",
+        "krakjoe/pthreads-polyfill": "^1.1"
     },
 	"minimum-stability": "alpha"
 }

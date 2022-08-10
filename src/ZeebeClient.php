@@ -93,7 +93,7 @@ class ZeebeClient {
 			'variables' => json_encode($variables)
 		]);
 		
-		[$rsp, $status] = $gatewayClient->CompleteJob($request)->wait();
+		[$rsp, $status] = $this->gatewayClient->CompleteJob($request)->wait();
 
 		return $rsp;
 	}
