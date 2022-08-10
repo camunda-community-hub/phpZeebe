@@ -1,7 +1,7 @@
 <?php
 $c = file_get_contents("https://raw.githubusercontent.com/camunda/zeebe/{$argv[1]}/gateway-protocol/src/main/proto/gateway.proto");
-$c .= "\noption php_namespace = \"ZeebeClient\\\\Command\";";
-$c .= "\noption php_metadata_namespace = \"ZeebeClient\\\\Command\";";
+$c .= "\noption php_namespace = \"Community\\\\PhpZeebe\\\\Command\";";
+$c .= "\noption php_metadata_namespace = \"Community\\\\PhpZeebe\\\\Command\";";
 
 file_put_contents("zeebe.proto", $c);
 

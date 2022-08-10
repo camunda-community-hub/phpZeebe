@@ -3,8 +3,10 @@ VERSION='8.0.4'
 build-client:
 	docker build -f build/Dockerfile . -t zeebe-client-builder
 	docker run --rm -w /zeebe/build -v ${PWD}:/zeebe zeebe-client-builder php download_proto.php $(VERSION)
-	docker run --rm -w /zeebe/build -v ${PWD}:/zeebe zeebe-client-builder rm -rf src/ZeebeClient/Command
+	docker run --rm -w /zeebe/build -v ${PWD}:/zeebe zeebe-client-builder rm -rf ../src/PhpZeebe/Command
 	docker run --rm -w /zeebe/build -v ${PWD}:/zeebe zeebe-client-builder protoc --php_out=../src --grpc_out=../src --plugin=protoc-gen-grpc=/usr/bin/grpc_php_plugin zeebe.proto
+	docker run --rm -w /zeebe/build -v ${PWD}:/zeebe zeebe-client-builder mv ../src/Community/PhpZeebe/Command ../src/PhpZeebe/Command
+	docker run --rm -w /zeebe/build -v ${PWD}:/zeebe zeebe-client-builder rm -rf ../src/Community
 	git add ./src/
 	
 tag:
