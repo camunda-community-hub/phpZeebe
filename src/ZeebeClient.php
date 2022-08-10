@@ -12,29 +12,29 @@ class ZeebeClient {
     }
 	
 	public function clusterId($clusterId) {
-		$this->$clusterId = $clusterId;
-		return this;
+		$this->clusterId = $clusterId;
+		return $this;
 	}
 	
 	public function region($region) {
-		$this->$region = $region;
-		return this;
+		$this->region = $region;
+		return $this;
 	}
 	
-	public function saasAuth($clientId, $clientSecret) {
-		this->$authentication = new SaaSAuthentication($clientId, $clientSecret);
+	public function saasAuth(string $clientId, string $clientSecret) {
+		$this->authentication = new SaaSAuthentication($clientId, $clientSecret);
         return $this;
 	}
 	
 	public function smAuth($zeebeAuthUrl, $clientId, $clientSecret) {
-		this->$authentication = new SelfManagedAuthentication($clientId, $clientSecret, $zeebeAuthUrl);
+		$this->authentication = new SelfManagedAuthentication($clientId, $clientSecret, $zeebeAuthUrl);
         return $this;
 	}
 	
 	public function gatewayClient() {
-		if (is_null($gatewayClient)) {
-			$token = this->$authentication.getToken();
-			$gatewayClient = new \Camundity\PhpZeebe\Command\GatewayClient($clusterId.".".$region.".zeebe.camunda.io:443", [
+		if (is_null($this->gatewayClient)) {
+			$token = $this->authentication->getToken();
+			$this->gatewayClient = new \Camundity\PhpZeebe\Command\GatewayClient($this->clusterId.".".$this->region.".zeebe.camunda.io:443", [
 				'credentials' => \Grpc\ChannelCredentials::createSsl(),
 				'update_metadata' => function ($metaData) use ($token) {
 					$metaData['authorization'] = ['Bearer ' . $token];
@@ -42,7 +42,7 @@ class ZeebeClient {
 				}
 			]);
 		}
-		return $gatewayClient;
+		return $this->gatewayClient;
 	}
 	
 	public function deployProcess($path) {
@@ -54,8 +54,8 @@ class ZeebeClient {
 		$deployRequest = new \Camundity\PhpZeebe\Command\DeployProcessRequest([
 			'processes' => [$process]
 		]);
-
-		[$rsp, $status] = gatewayClient()->DeployProcess($deployRequest)->wait();
+		$gatewayClient = $this->gatewayClient();
+		[$rsp, $status] = $gatewayClient ->DeployProcess($deployRequest)->wait();
 	}
 }	
 /*

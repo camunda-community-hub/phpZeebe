@@ -41,7 +41,7 @@ class HttpClient {
 
 
 	public static function postJson(string $url, array $data) {
-		$data     = my_utf8_encode($data);
+		$data     = HttpClient::my_utf8_encode($data);
 		$postdata = json_encode($data);
 		if (is_null($postdata)) {
 			throw new \Exception('decoding params');
