@@ -1,5 +1,5 @@
 {
-    "name": "chDame/zeebe-php-client",
+    "name": " ch-dame/zeebe-php-client",
     "type": "library",
     "description": "PHP Client for zeebe workflow engine (https://zeebe.io)",
     "keywords": ["zeebe", "microservice", "orchestration", "workflow", "bpmn"],
