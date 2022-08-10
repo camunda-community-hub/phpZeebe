@@ -8,12 +8,8 @@ class ZeebeClient {
 	private $authentication = null;
 	private $gatewayClient = null;
 	
-	public function __construct() {
-    }
-	
-	public function clusterId($clusterId) {
+	public function __construct($clusterId) {
 		$this->clusterId = $clusterId;
-		return $this;
 	}
 	
 	public function region($region) {
@@ -56,6 +52,50 @@ class ZeebeClient {
 		]);
 		$gatewayClient = $this->gatewayClient();
 		[$rsp, $status] = $gatewayClient ->DeployProcess($deployRequest)->wait();
+		
+		return $rsp;
+	}
+	
+	
+	public function runInstanceFromKey($processDefinitionKey, $variables) {
+		$gatewayClient = $this->gatewayClient();
+
+		$request = new \Camundity\PhpZeebe\Command\CreateProcessInstanceRequest([
+			'processDefinitionKey' => $processDefinitionKey,
+			'variables' => json_encode($variables)
+		]);
+
+		[$rsp, $status] = $gatewayClient->CreateProcessInstance($request)->wait();
+
+		return $rsp;
+	}
+	
+	public function runInstance($bpmnProcessId, $version, $variables) {
+		$gatewayClient = $this->gatewayClient();
+		if($version=='latest') {
+			$version=-1;
+		}
+		$request = new \Camundity\PhpZeebe\Command\CreateProcessInstanceRequest([
+			'version' => $version,
+			'bpmnProcessId' => $bpmnProcessId,
+			'variables' => json_encode($variables)
+		]);
+
+		[$rsp, $status] = $gatewayClient->CreateProcessInstance($request)->wait();
+
+		return $rsp;
+	}
+	
+	public function completeJob($jobKey, $variables) {
+		
+		$request = new \Camundity\PhpZeebe\Command\CompleteJobRequest([
+			'jobKey' => $jobKey,
+			'variables' => json_encode($variables)
+		]);
+		
+		[$rsp, $status] = $gatewayClient->CompleteJob($request)->wait();
+
+		return $rsp;
 	}
 }	
 /*
