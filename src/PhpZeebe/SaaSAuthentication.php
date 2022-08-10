@@ -1,5 +1,5 @@
 <?php
-namespace Community\PhpZeebe;
+namespace Camundity\PhpZeebe;
 
 class SaaSAuthentication {
 

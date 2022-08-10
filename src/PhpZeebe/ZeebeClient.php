@@ -1,5 +1,5 @@
 <?php
-namespace Community\PhpZeebe;
+namespace Camundity\PhpZeebe;
 
 class ZeebeClient {
 
@@ -34,7 +34,7 @@ class ZeebeClient {
 	public function gatewayClient() {
 		if (is_null($gatewayClient)) {
 			$token = this->$authentication.getToken();
-			$gatewayClient = new \Community\PhpZeebe\Command\GatewayClient($clusterId.".".$region.".zeebe.camunda.io:443", [
+			$gatewayClient = new \Camundity\PhpZeebe\Command\GatewayClient($clusterId.".".$region.".zeebe.camunda.io:443", [
 				'credentials' => \Grpc\ChannelCredentials::createSsl(),
 				'update_metadata' => function ($metaData) use ($token) {
 					$metaData['authorization'] = ['Bearer ' . $token];
@@ -46,12 +46,12 @@ class ZeebeClient {
 	}
 	
 	public function deployProcess($path) {
-		$process = new \Community\PhpZeebe\Command\ProcessRequestObject([
+		$process = new \Camundity\PhpZeebe\Command\ProcessRequestObject([
 			'name' => basename($path),
 			'definition' => file_get_contents($path)
 		]);
 
-		$deployRequest = new \Community\PhpZeebe\Command\DeployProcessRequest([
+		$deployRequest = new \Camundity\PhpZeebe\Command\DeployProcessRequest([
 			'processes' => [$process]
 		]);
 

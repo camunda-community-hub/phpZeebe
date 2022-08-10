@@ -1,7 +1,7 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace Community\PhpZeebe\Command;
+namespace Camundity\PhpZeebe\Command;
 
 /**
  */
@@ -27,16 +27,16 @@ class GatewayClient extends \Grpc\BaseStub {
      * - worker is blank (empty string, null)
      * - timeout less than 1
      * - maxJobsToActivate is less than 1
-     * @param \Community\PhpZeebe\Command\ActivateJobsRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\ActivateJobsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\ServerStreamingCall
      */
-    public function ActivateJobs(\Community\PhpZeebe\Command\ActivateJobsRequest $argument,
+    public function ActivateJobs(\Camundity\PhpZeebe\Command\ActivateJobsRequest $argument,
       $metadata = [], $options = []) {
         return $this->_serverStreamRequest('/gateway_protocol.Gateway/ActivateJobs',
         $argument,
-        ['\Community\PhpZeebe\Command\ActivateJobsResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\ActivateJobsResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -47,16 +47,16 @@ class GatewayClient extends \Grpc\BaseStub {
      * Errors:
      * NOT_FOUND:
      * - no process instance exists with the given key
-     * @param \Community\PhpZeebe\Command\CancelProcessInstanceRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\CancelProcessInstanceRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function CancelProcessInstance(\Community\PhpZeebe\Command\CancelProcessInstanceRequest $argument,
+    public function CancelProcessInstance(\Camundity\PhpZeebe\Command\CancelProcessInstanceRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/CancelProcessInstance',
         $argument,
-        ['\Community\PhpZeebe\Command\CancelProcessInstanceResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\CancelProcessInstanceResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -72,16 +72,16 @@ class GatewayClient extends \Grpc\BaseStub {
      * FAILED_PRECONDITION:
      * - the job was marked as failed. In that case, the related incident must be resolved before
      * the job can be activated again and completed.
-     * @param \Community\PhpZeebe\Command\CompleteJobRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\CompleteJobRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function CompleteJob(\Community\PhpZeebe\Command\CompleteJobRequest $argument,
+    public function CompleteJob(\Camundity\PhpZeebe\Command\CompleteJobRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/CompleteJob',
         $argument,
-        ['\Community\PhpZeebe\Command\CompleteJobResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\CompleteJobResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -106,32 +106,32 @@ class GatewayClient extends \Grpc\BaseStub {
      * INVALID_ARGUMENT:
      * - the given variables argument is not a valid JSON document; it is expected to be a valid
      * JSON document where the root node is an object.
-     * @param \Community\PhpZeebe\Command\CreateProcessInstanceRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\CreateProcessInstanceRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function CreateProcessInstance(\Community\PhpZeebe\Command\CreateProcessInstanceRequest $argument,
+    public function CreateProcessInstance(\Camundity\PhpZeebe\Command\CreateProcessInstanceRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/CreateProcessInstance',
         $argument,
-        ['\Community\PhpZeebe\Command\CreateProcessInstanceResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\CreateProcessInstanceResponse', 'decode'],
         $metadata, $options);
     }
 
     /**
      *
      * Behaves similarly to `rpc CreateProcessInstance`, except that a successful response is received when the process completes successfully.
-     * @param \Community\PhpZeebe\Command\CreateProcessInstanceWithResultRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\CreateProcessInstanceWithResultRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function CreateProcessInstanceWithResult(\Community\PhpZeebe\Command\CreateProcessInstanceWithResultRequest $argument,
+    public function CreateProcessInstanceWithResult(\Camundity\PhpZeebe\Command\CreateProcessInstanceWithResultRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/CreateProcessInstanceWithResult',
         $argument,
-        ['\Community\PhpZeebe\Command\CreateProcessInstanceWithResultResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\CreateProcessInstanceWithResultResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -146,16 +146,16 @@ class GatewayClient extends \Grpc\BaseStub {
      * - if at least one resource is invalid. A resource is considered invalid if:
      * - the resource data is not deserializable (e.g. detected as BPMN, but it's broken XML)
      * - the process is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
-     * @param \Community\PhpZeebe\Command\DeployProcessRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\DeployProcessRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function DeployProcess(\Community\PhpZeebe\Command\DeployProcessRequest $argument,
+    public function DeployProcess(\Camundity\PhpZeebe\Command\DeployProcessRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/DeployProcess',
         $argument,
-        ['\Community\PhpZeebe\Command\DeployProcessResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\DeployProcessResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -170,16 +170,16 @@ class GatewayClient extends \Grpc\BaseStub {
      * - if at least one resource is invalid. A resource is considered invalid if:
      * - the content is not deserializable (e.g. detected as BPMN, but it's broken XML)
      * - the content is invalid (e.g. an event-based gateway has an outgoing sequence flow to a task)
-     * @param \Community\PhpZeebe\Command\DeployResourceRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\DeployResourceRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function DeployResource(\Community\PhpZeebe\Command\DeployResourceRequest $argument,
+    public function DeployResource(\Camundity\PhpZeebe\Command\DeployResourceRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/DeployResource',
         $argument,
-        ['\Community\PhpZeebe\Command\DeployResourceResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\DeployResourceResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -197,16 +197,16 @@ class GatewayClient extends \Grpc\BaseStub {
      * FAILED_PRECONDITION:
      * - the job was not activated
      * - the job is already in a failed state, i.e. ran out of retries
-     * @param \Community\PhpZeebe\Command\FailJobRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\FailJobRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function FailJob(\Community\PhpZeebe\Command\FailJobRequest $argument,
+    public function FailJob(\Camundity\PhpZeebe\Command\FailJobRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/FailJob',
         $argument,
-        ['\Community\PhpZeebe\Command\FailJobResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\FailJobResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -220,16 +220,16 @@ class GatewayClient extends \Grpc\BaseStub {
      *
      * FAILED_PRECONDITION:
      * - the job is not in an activated state
-     * @param \Community\PhpZeebe\Command\ThrowErrorRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\ThrowErrorRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function ThrowError(\Community\PhpZeebe\Command\ThrowErrorRequest $argument,
+    public function ThrowError(\Camundity\PhpZeebe\Command\ThrowErrorRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/ThrowError',
         $argument,
-        ['\Community\PhpZeebe\Command\ThrowErrorResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\ThrowErrorResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -241,16 +241,16 @@ class GatewayClient extends \Grpc\BaseStub {
      * Errors:
      * ALREADY_EXISTS:
      * - a message with the same ID was previously published (and is still alive)
-     * @param \Community\PhpZeebe\Command\PublishMessageRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\PublishMessageRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function PublishMessage(\Community\PhpZeebe\Command\PublishMessageRequest $argument,
+    public function PublishMessage(\Camundity\PhpZeebe\Command\PublishMessageRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/PublishMessage',
         $argument,
-        ['\Community\PhpZeebe\Command\PublishMessageResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\PublishMessageResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -263,16 +263,16 @@ class GatewayClient extends \Grpc\BaseStub {
      * Errors:
      * NOT_FOUND:
      * - no incident with the given key exists
-     * @param \Community\PhpZeebe\Command\ResolveIncidentRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\ResolveIncidentRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function ResolveIncident(\Community\PhpZeebe\Command\ResolveIncidentRequest $argument,
+    public function ResolveIncident(\Camundity\PhpZeebe\Command\ResolveIncidentRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/ResolveIncident',
         $argument,
-        ['\Community\PhpZeebe\Command\ResolveIncidentResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\ResolveIncidentResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -287,32 +287,32 @@ class GatewayClient extends \Grpc\BaseStub {
      * INVALID_ARGUMENT:
      * - the given variables document is not a valid JSON document; valid documents are expected to
      * be JSON documents where the root node is an object.
-     * @param \Community\PhpZeebe\Command\SetVariablesRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\SetVariablesRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function SetVariables(\Community\PhpZeebe\Command\SetVariablesRequest $argument,
+    public function SetVariables(\Camundity\PhpZeebe\Command\SetVariablesRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/SetVariables',
         $argument,
-        ['\Community\PhpZeebe\Command\SetVariablesResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\SetVariablesResponse', 'decode'],
         $metadata, $options);
     }
 
     /**
      *
      * Obtains the current topology of the cluster the gateway is part of.
-     * @param \Community\PhpZeebe\Command\TopologyRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\TopologyRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function Topology(\Community\PhpZeebe\Command\TopologyRequest $argument,
+    public function Topology(\Camundity\PhpZeebe\Command\TopologyRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/Topology',
         $argument,
-        ['\Community\PhpZeebe\Command\TopologyResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\TopologyResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -327,16 +327,16 @@ class GatewayClient extends \Grpc\BaseStub {
      *
      * INVALID_ARGUMENT:
      * - retries is not greater than 0
-     * @param \Community\PhpZeebe\Command\UpdateJobRetriesRequest $argument input argument
+     * @param \Camundity\PhpZeebe\Command\UpdateJobRetriesRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function UpdateJobRetries(\Community\PhpZeebe\Command\UpdateJobRetriesRequest $argument,
+    public function UpdateJobRetries(\Camundity\PhpZeebe\Command\UpdateJobRetriesRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/gateway_protocol.Gateway/UpdateJobRetries',
         $argument,
-        ['\Community\PhpZeebe\Command\UpdateJobRetriesResponse', 'decode'],
+        ['\Camundity\PhpZeebe\Command\UpdateJobRetriesResponse', 'decode'],
         $metadata, $options);
     }
 

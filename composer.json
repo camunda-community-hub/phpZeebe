@@ -1,5 +1,5 @@
 {
-    "name": "community/phpzeebe",
+    "name": "camundity/phpzeebe",
     "type": "library",
     "description": "PHP Client for zeebe workflow engine (https://zeebe.io)",
     "keywords": ["zeebe", "microservice", "orchestration", "workflow", "bpmn"],
@@ -20,6 +20,6 @@
         "google/protobuf": "^3.9.1"
     },
     "autoload": {
-        "psr-4": {"Community\\PhpZeebe\\": "src/"}
+        "psr-4": {"Camundity\\PhpZeebe\\": "src/"}
     }
 }
