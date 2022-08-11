@@ -1,7 +1,7 @@
 <?php
 namespace Camundity\PhpZeebe;
 
-abstract class ZeebeWorker extends \Thread {
+abstract class ZeebeWorker {
     
     protected $zeebeClient;
     
@@ -20,21 +20,22 @@ abstract class ZeebeWorker extends \Thread {
     }
     
     public function work() {
-		$this->running = true;
-        $this->start();
-    }
-    public function run() {
         $request = $this->buildJobRequest();
-		while($this->running) {
-			$call = $this->zeebeClient->gatewayClient()->ActivateJobs($request);
-			foreach  ($call->responses() as $activateJobsResponse) {
-				$jobs = $activateJobsResponse->getJobs();
-				foreach ($jobs as $activatedJob) {
-				  $this->executeTask($activatedJob);
-				}
-			}
-			usleep(100000);
-		}
+        $call = $this->zeebeClient->gatewayClient()->ActivateJobs($request);
+        foreach  ($call->responses() as $activateJobsResponse) {
+            $jobs = $activateJobsResponse->getJobs();
+            foreach ($jobs as $activatedJob) {
+                $this->executeTask($activatedJob);
+            }
+        }
+    }
+	
+    public function workLoop() {
+		$this->running = true;
+        while($this->running) {
+            $this->work();
+            usleep(100000);
+        }
     }
     
     abstract public function executeTask($activatedJob);
@@ -74,7 +75,7 @@ abstract class ZeebeWorker extends \Thread {
     public function complete($activatedJob, $variables) {
         $this->zeebeClient->completeJob($activatedJob->getKey(), $variables);
     }
-	public function stop() {
-		$this->running = false;
-	}
+    public function stopWorkLoop() {
+        $this->running = false;
+    }
 }

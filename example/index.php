@@ -5,19 +5,16 @@ require_once('SelectAssigneeWorker.php');
 require_once('MailWorker.php');
 use Camundity\PhpZeebe\ZeebeClient;
 
-if (extension_loaded("pthreads")) {
-	    echo "Using pthreads\n";
-} else  echo "Using polyfill\n";
-
 $client = new ZeebeClient("XXX");
 $client->saasAuth("XXX", "XXX");
 
 $client->deployProcess("camunda-process.bpmn");
 
-$client->runInstance("camunda-process2","latest", ["text"=>"flute"]);
+$client->runInstance("camunda-process2","latest", ["var1"=>"something"]);
+$client->publishMessage("messageName","correlationKey", ["var2"=>"someOtherValue"]);
 
 $worker2 = new MailWorker($client);
 $worker2->work();
 $worker = new SelectAssigneeWorker($client);
-$worker->work();
+$worker->workLoop(); //blocking. Sould be handled in a separate thread (like Laravel workers)
 ?>

@@ -97,38 +97,18 @@ class ZeebeClient {
 
 		return $rsp;
 	}
-}	
-/*
-$dotenv = new Dotenv();
-$dotenv->load(__DIR__.'/.env');
+	
+	public function publishMessage($messageName, $correlationKey, $variables) {
+		$request = new \Camundity\PhpZeebe\Command\PublishMessageRequest([
+			'name' => $messageName,
+			'correlationKey' => $correlationKey,
+			'variables' => json_encode($variables),
+			'timeToLive' => 3600000 //1 hour
+		]);
+		
+		[$rsp, $status] = $this->gatewayClient->PublishMessage($request)->wait();
 
-$json = ['audience' => 'zeebe.camunda.io',
-    'client_id' => $_ENV['ZEEBE_CLIENT_ID'],
-    'client_secret' => $_ENV['ZEEBE_CLIENT_SECRET'],
-    'grant_type' => 'client_credentials',
-];
-
-$authServer = $_ENV['ZEEBE_AUTHORIZATION_SERVER_URL'];
-
-$token = \Symfony\Component\HttpClient\HttpClient::create()->request('POST', $authServer, ['json' => $json]);
-$token = $token->toArray()['access_token'];
-
-$address = $_ENV['ZEEBE_ADDRESS'];
-
-
-
-return $client;
-
-
-$call = $client->ActivateJobs($rectangle);
-// an iterator over the server streaming responses
-$activateJobsResponses = $call->responses();
-foreach ($activateJobsResponses as $activateJobsResponse) {
-  // process each activateJobsResponse
+		return $rsp;
+	}
 }
-
-while ($activateJobsResponse = $call->read()) {
-  // process $route_note_reply
-}
-*/
 ?>

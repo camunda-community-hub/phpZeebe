@@ -6,8 +6,7 @@
         "grpc/grpc": "^1.22",
         "ext-grpc": "^1.43",
         "google/protobuf": "^3.9.1",
-        "camundity/phpzeebe": "^8.0@alpha",
-        "krakjoe/pthreads-polyfill": "^1.1"
+        "camundity/phpzeebe": "^8.0@alpha"
     },
 	"minimum-stability": "alpha"
 }

@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "865ec9b3095c5c9b2d06108a29d7eeb4",
+    "content-hash": "c01f761de5649ab9d6a7051ff250682b",
     "packages": [
         {
-            "name": "camunda_community_hub/phpzeebe",
+            "name": "camundity/phpzeebe",
             "version": "8.0.4_alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/camunda-community-hub/phpZeebe.git",
-                "reference": "dcfc5652b968d2462e55cf8d7f34ac095bed612d"
+                "reference": "ca33cff77afbe7732519108c4f4adeee232b9ac4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/camunda-community-hub/phpZeebe/zipball/dcfc5652b968d2462e55cf8d7f34ac095bed612d",
-                "reference": "dcfc5652b968d2462e55cf8d7f34ac095bed612d",
+                "url": "https://api.github.com/repos/camunda-community-hub/phpZeebe/zipball/ca33cff77afbe7732519108c4f4adeee232b9ac4",
+                "reference": "ca33cff77afbe7732519108c4f4adeee232b9ac4",
                 "shasum": ""
             },
             "require": {
@@ -29,7 +29,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "ZeebeClient\\": "src/ZeebeClient"
+                    "Camundity\\PhpZeebe\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -54,7 +54,7 @@
                 "issues": "https://github.com/camunda-community-hub/phpZeebe/issues",
                 "source": "https://github.com/camunda-community-hub/phpZeebe/tree/8.0.4_alpha"
             },
-            "time": "2022-08-10T08:44:17+00:00"
+            "time": "2022-08-10T11:55:45+00:00"
         },
         {
             "name": "google/protobuf",
@@ -143,13 +143,63 @@
                 "source": "https://github.com/grpc/grpc-php/tree/v1.42.0"
             },
             "time": "2021-11-19T08:13:51+00:00"
+        },
+        {
+            "name": "krakjoe/pthreads-polyfill",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/krakjoe/pthreads-polyfill.git",
+                "reference": "e0b6b34aca142dda943bf8ade046285fd2000c35"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/krakjoe/pthreads-polyfill/zipball/e0b6b34aca142dda943bf8ade046285fd2000c35",
+                "reference": "e0b6b34aca142dda943bf8ade046285fd2000c35",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Collectable.php",
+                    "src/Threaded.php",
+                    "src/Volatile.php",
+                    "src/Thread.php",
+                    "src/Worker.php",
+                    "src/Pool.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "PHP"
+            ],
+            "authors": [
+                {
+                    "name": "Joe Watkins",
+                    "email": "krakjoe@php.net"
+                }
+            ],
+            "description": "A polyfill for pthreads",
+            "homepage": "http://pthreads.org/",
+            "keywords": [
+                "polyfill",
+                "pthreads"
+            ],
+            "support": {
+                "issues": "https://github.com/krakjoe/pthreads-polyfill/issues",
+                "source": "https://github.com/krakjoe/pthreads-polyfill/tree/master"
+            },
+            "time": "2015-11-16T08:24:31+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "alpha",
     "stability-flags": {
-        "camunda_community_hub/phpzeebe": 15
+        "camundity/phpzeebe": 15
     },
     "prefer-stable": false,
     "prefer-lowest": false,
