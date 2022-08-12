@@ -53,6 +53,10 @@ $worker = new SelectAssigneeWorker($client);
 $worker->workLoop();
 ```
 
+## Laravel example
+A quick example of use in Laravel : https://github.com/chDame/phpzeebe-laravel-example
+Workers are executed as jobs.
+
 ### Notes
 
 the workers should be called in separated threads on the back. You can user work() inside a loop mechanisms or directly workLoop() (call stopWorkLoop to stop). This could be managed inside Laravel workers for example.
