@@ -5,15 +5,15 @@ abstract class ZeebeWorker {
     
     protected $zeebeClient;
     
-    private $type='';
+    protected $type='';
     
-    private $timeout = 300000;
+    protected $timeout = 300000;
 
-    private $maxJobsToActivate = 32;
+    protected $maxJobsToActivate = 32;
     
-    private $requestTimeout = 10000;
+    protected $requestTimeout = 10000;
     
-    private $running = false;
+    protected $running = false;
     
     public function __construct($zeebeClient) {
         $this->zeebeClient = $zeebeClient;
@@ -68,6 +68,10 @@ abstract class ZeebeWorker {
     }
     public function getClient() {
         return $this->zeebeClient;
+    }
+    public function setClient($zeebeClient) {
+        $this->zeebeClient = $zeebeClient;
+		return $this;
     }
     public function getVariables($activatedJob) {
         return json_decode($activatedJob->getVariables(), TRUE);
